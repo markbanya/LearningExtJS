@@ -57,10 +57,12 @@ Ext.define('AppName.view.page.PageController', {
                     Ext.Msg.alert("Error", jsonResp.error);
                 }
             });
+            var panel = Ext.getCmp('eastPanel');
+            panel.collapse();
         } else {} // do something else here
     },
 
-    onDeleteClick: function() {
+    onDeleteClick: function(button) {
         var grid = Ext.getCmp('membergrid');
 
         var selection = grid.getView().getSelectionModel().getSelection()[0];
@@ -74,6 +76,7 @@ Ext.define('AppName.view.page.PageController', {
                     'Content-Type': 'application/json'
                 }
             });
+
         }
     },
     onSelectionChange: function(selModel, selections) {
@@ -93,5 +96,9 @@ Ext.define('AppName.view.page.PageController', {
             var dn = Ext.getCmp('numberField').setRawValue(numberData);
 
         }
+    },
+    collapseForm: function() {
+        var panel = Ext.getCmp('eastPanel');
+        panel.expand();
     }
 });

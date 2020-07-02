@@ -51,3 +51,4 @@ is loaded.
 This folder contains the styling for the application's views. See AppName/sass/Readme.md
 for details.
 # LearningExtJS
+# TrainingJS

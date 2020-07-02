@@ -55,10 +55,22 @@ Ext.define('AppName.view.page.Page', {
 
                 },
 
+
+                {
+                    xtype: 'button',
+                    text: 'Add Item ',
+                    style: 'margin: 0px 10px 10px 22px',
+                    listeners: {
+                        click: 'collapseForm'
+                    }
+
+                },
+
                 {
                     xtype: 'button',
                     reference: 'delete',
                     text: 'Delete',
+                    style: 'margin: 0px 10px 10px 10px',
                     listeners: {
                         click: 'onDeleteClick'
                     }
@@ -74,45 +86,14 @@ Ext.define('AppName.view.page.Page', {
         minHeight: 100
     }, {
         region: 'east',
-        title: 'Details',
-        collapsible: true,
+        title: 'Add Items',
+        id: 'eastPanel',
         split: true,
-        width: 180,
+        width: 300,
+        collapsible: true,
+        collapsed: true,
         items: [{
-            xtype: 'textfield',
-            fieldLabel: 'Retail',
-            name: 'retail',
 
-            id: 'retail',
-            editable: false
-        }, {
-
-            fieldLabel: 'Category',
-            name: 'Category',
-            id: 'category',
-            xtype: 'textarea',
-            editable: false
-
-
-        }, {
-            xtype: 'numberfield',
-            fieldLabel: 'Number Field',
-            name: 'numberField',
-            id: 'numberField',
-            editable: false
-
-        }]
-    }, {
-        region: 'center',
-        xtype: 'tabpanel', // TabPanel itself has no title
-        plain: true,
-        activeTab: 0,
-        //height:335,
-        defaults: {
-            bodyStyle: 'padding:10px'
-        },
-        items: [{
-            title: 'General',
             xtype: 'form',
             layout: 'form',
             width: 300,
@@ -140,13 +121,58 @@ Ext.define('AppName.view.page.Page', {
                 },
                 {
                     xtype: 'button',
-                    text: 'Ok',
+                    text: 'Update',
                     listeners: {
                         click: 'addItem'
                     }
 
                 }
             ]
+        }]
+    }, {
+        region: 'center',
+        xtype: 'tabpanel', // TabPanel itself has no title
+        plain: true,
+
+        activeTab: 0,
+        //height:335,
+        defaults: {
+            bodyStyle: 'padding:10px'
+        },
+        items: [{
+            title: 'General',
+            width: 300,
+            layout: 'form',
+            //defaultType: 'textfield',
+            items: [{
+                    xtype: 'textfield',
+                    fieldLabel: 'Retail',
+                    name: 'retail',
+                    width: 280,
+                    id: 'retail',
+                    editable: false
+                }, {
+
+                    fieldLabel: 'Category',
+                    name: 'Category',
+                    id: 'category',
+                    xtype: 'textarea',
+                    height: 200,
+                    width: 280,
+                    editable: false
+
+
+                }, {
+                    xtype: 'numberfield',
+                    fieldLabel: 'Number Field',
+                    name: 'numberField',
+                    id: 'numberField',
+                    editable: false
+
+                }
+
+            ]
+
         }]
     }]
 });
